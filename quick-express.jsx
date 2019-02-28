@@ -5,114 +5,119 @@
 (function qe_expressTool(thisObj) {
 
 	//string 
-	var qe_str = {};
-	qe_str.title = {
-		en: "quick expression tool",
-		cn: "快捷表达式工具"
-	};
-	qe_str.copyright = {
-		en: "Copyright (c) 2017 songz meng",
-		cn: "Copyright (c) 2017 songz meng"
-	};
-	qe_str.version = {
-		en: " v1.0",
-		cn: " v1.0"
-	};
-	qe_str.descript = {
-		en: "descript",
-		cn: "概述"
-	};
-	qe_str.usage = {
-		en: "usage",
-		cn: "使用"
-	};
-	qe_str.about = {
-		en: "about",
-		cn: "关于"
-	};
-	qe_str.other = {
-		en: "other script",
-		cn: "其他脚本"
-	};
-	qe_str.close = {
-		en: "close",
-		cn: "关闭"
-	};
+	var qe_str = {
+		title: {
+			en: "quick expression tool",
+			cn: "快捷表达式工具"
+		},
+		copyright: {
+			en: "Copyright (c) 2017 songz meng",
+			cn: "Copyright (c) 2017 songz meng"
+		},
+		version: {
+			en: " v1.0",
+			cn: " v1.0"
+		},
+		descript: {
+			en: "descript",
+			cn: "概述"
+		},
+		usage: {
+			en: "usage",
+			cn: "使用"
+		},
+		about: {
+			en: "about",
+			cn: "关于"
+		},
+		other: {
+			en: "other script",
+			cn: "其他脚本"
+		},
+		close: {
+			en: "close",
+			cn: "关闭"
+		},
 
-	qe_str.importTip = {
-		en: "import expression from Property",
-		cn: "导入表达式"
-	};
-	qe_str.exportTip = {
-		en: "export to Properties",
-		cn: "导出表达式到属性"
-	};
-	qe_str.toggleTip = {
-		en: "toggle Props' expressions",
-		cn: "开/关所属性的表达式"
-	};
-	qe_str.deleteTip = {
-		en: "delete Props' expressions",
-		cn: "删除所选属性的表达式"
-	};
-	qe_str.beautyTip = {
-		en: "expression beauty",
-		cn: "格式化表达式"
-	};
-	qe_str.pickTip = {
-		en: "get Prop's path",
-		cn: "提取属性的路径"
-	};
-	qe_str.absolute = {
-		en: "absolute",
-		cn: "绝对值"
-	};
-	qe_str.relative = {
-		en: "relative",
-		cn: "相对值"
-	};
-	qe_str.website = {
-		en: "https://github.com/msongz",
-		cn: "https://github.com/msongz"
-	};
-	qe_str.mail = {
-		en: "songzmeng@gmail.com",
-		cn: "msongz@qq.com"
-	};
-	qe_str.errorOneProp = {
-		en: "Please selected only one property",
-		cn: "请 [只] 选择一个属性"
-	};
-	qe_str.errorNotSet = {
-		en: "selected property can not be set expression",
-		cn: "所选属性不支持表达式"
-	};
-	qe_str.useContent = {
-		en: "▶import : import the property\\'s expression to the text area\\n▶export : export the text to selected properties\\n▶toggle : enable or disable your properties\\' expressions\\n▶delete : delete your properties\\' expressions\\n▶beauty : beautify text area and your expressions\\n▶pick : get the property\\'s path\\n* support absolute or relative path\\n* support batch operations except import and pick",
-		cn: "▶导入: 导入属性的表达式到文本框\\n▶导出: 导出表达式到所选属性\\n▶开关: 启用或禁用所选属性的表达式\\n▶删除: 删除所选属性的表达式\\n▶美化: 美化文本框和所选属性的表达式\\n▶吸管: 提取属性的表达式路径\\n* 支持绝对值和相对值路径\\n* 支持批量操作，除了导入和吸管\\n"
-	};
-	qe_str.desContent = {
-		en: qe_loc(qe_str.title) + qe_loc(qe_str.version) + "\\n" + qe_loc(qe_str.copyright) + "\\n" + qe_loc(qe_str.mail) + "\\n\\nthis scritp allows you to operate the properties\\' expression quickly and convenience\\n\\nsuper thanks:\\nredefinery.com\\njsbeautifier.org",
-		cn: qe_loc(qe_str.title) + qe_loc(qe_str.version) + "\\n" + qe_loc(qe_str.copyright) + "\\n" + qe_loc(qe_str.mail) + "\\n\\n这个脚本提供你方便快捷的操作属性的表达式\\n\\n特别感谢:\\nredefinery.com\\njsbeautifier.org"
-	};
-	qe_str.cleanTip = {
-		en: "clear,can\'t undo!",
-		cn: "清空，不可撤回！"
-	};
-	qe_str.aa = {
-		en: "abc",
-		cn: "飒飒的"
+		importTip: {
+			en: "import expression from Property",
+			cn: "导入表达式"
+		},
+		exportTip: {
+			en: "export to Properties",
+			cn: "导出表达式到属性"
+		},
+		toggleTip: {
+			en: "toggle Props' expressions",
+			cn: "开/关所属性的表达式"
+		},
+		deleteTip: {
+			en: "delete Props' expressions",
+			cn: "删除所选属性的表达式"
+		},
+		beautyTip: {
+			en: "expression beauty",
+			cn: "格式化表达式"
+		},
+		pickTip: {
+			en: "get Prop's path",
+			cn: "提取属性的路径"
+		},
+		absolute: {
+			en: "absolute",
+			cn: "绝对值"
+		},
+		relative: {
+			en: "relative",
+			cn: "相对值"
+		},
+		website: {
+			en: "https://github.com/msongz",
+			cn: "https://github.com/msongz"
+		},
+		mail: {
+			en: "songzmeng@gmail.com",
+			cn: "msongz@qq.com"
+		},
+		errorOneProp: {
+			en: "Please selected only one property",
+			cn: "请 [只] 选择一个属性"
+		},
+		errorNotSet: {
+			en: "selected property can not be set expression",
+			cn: "所选属性不支持表达式"
+		},
+		useContent: {
+			en: "▶import : import the property\\'s expression to the text area\\n▶export : export the text to selected properties\\n▶toggle : enable or disable your properties\\' expressions\\n▶delete : delete your properties\\' expressions\\n▶beauty : beautify text area and your expressions\\n▶pick : get the property\\'s path\\n* support absolute or relative path\\n* support batch operations except import and pick",
+			cn: "▶导入: 导入属性的表达式到文本框\\n▶导出: 导出表达式到所选属性\\n▶开关: 启用或禁用所选属性的表达式\\n▶删除: 删除所选属性的表达式\\n▶美化: 美化文本框和所选属性的表达式\\n▶吸管: 提取属性的表达式路径\\n* 支持绝对值和相对值路径\\n* 支持批量操作，除了导入和吸管\\n"
+		},
+		desContent: {
+			en: function () {
+				return this.title + this.version + "\\n" + this.copyright + "\\n" + this.mail + "\\n\\nthis scritp allows you to operate the properties\\' expression quickly and convenience\\n\\nsuper thanks:\\nredefinery.com\\njsbeautifier.org"
+			},
+			cn: function () {
+				return this.title + this.version + "\\n" + this.copyright + "\\n" + this.mail + "\\n\\n这个脚本提供你方便快捷的操作属性的表达式\\n\\n特别感谢:\\nredefinery.com\\njsbeautifier.org"
+			}
+		},
+		cleanTip: {
+			en: "clear,can\'t undo!",
+			cn: "清空，不可撤回！"
+		},
+		aa: {
+			en: "abc",
+			cn: "飒飒的"
+		}
 	};
 
 	//localize
-	function qe_loc(text) {
-		return "zh_CN" == app.isoLanguage ? text.cn : text.en
-	}
+	for (var i in qe_str) "zh_CN" == app.isoLanguage ?
+		qe_str[i] = qe_str[i].cn :
+		qe_str[i] = qe_str[i].en;
 
 	//UI
 	function qe_buildUI(thisObj) {
-        var bgYellow=[1, 1, 67/255];
-        var bgPink=[185/255, 0, 1];
+		var bgYellow = [1, 1, 67 / 255];
+		var bgPink = [185 / 255, 0, 1];
 		//images
 		var up = "\u0089PNG\r\n\x1A\n\x00\x00\x00\rIHDR\x00\x00\x00\x1E\x00\x00\x00\x1E\b\x06\x00\x00\x00;0\u00AE\u00A2\x00\x00\x00\tpHYs\x00\x00\x0B\x12\x00\x00\x0B\x12\x01\u00D2\u00DD~\u00FC\x00\x00\x01`IDATH\u00C7\u00ED\u00D6=\u008A\u00C2@\x14\x07\u00F0\u00E7C\u0082id\u00CB\u0085\u0080\u00E0\x01\u0084\x01\u00B1\u00D1\x13X\u00AC\u0085)\u00F7\x04v\u00DE\u00C6\u00CA.\n\x16Y\u00C4\x15\u00EB\x14bc\u0093\x13\u00B8\x10\x116]\x1A3\u00E2\u00C7\u00BC-V\u00F73b2\u00A3\u00D8\u00E4\u00C143\u0093\u00FC\u00E6\u00CF$\u00CCd\u0088\b\u00EEQ\bw\u00AA\x14N\u00E1\u009BU6\u00F1\x13\u00BC\u00C7\u00C4\x16g\x00\x00\u00A8\u0089*\u00E8\u00CF\u00EE\u00ED\x13\x1F\u00D1\u0095]\u00D0WvA\x17[\u009C\x01\u00EF\u00B1\u00DB&\u00FE\u0081\u00BA\u00AD\u00CA\u00A9W7Lo\u0086\u00D0K\u009C\x1C\x15Pp[\x15\u0090M\u008E\u00B2\u00A8*\u008E*\u00A8\n\u008E\u00AA\u00A8,\u008E\u00D7@epL\u008A\u00E6K\x01\u00D4\u0097C\u00AA/\u0087\u0094/\x05\u00D28&Ek\x13\u0087\u00F6\u00EB\u00ECx\u00BF\u00CE\u008Ek\x13G\x1AG\x194Wl6r\u00C5fC\x05G\x19\u00F4\u00D4\u00AF\u0082#\x00\u0080\f*\u0089?\u00C4\u00FA\u008F/\u00A1q\u00F1\u00B3{\u008C\u009A\u00A8\x1A\u00A6\u00C7Yg\u009E\x18\u00BD\u0084\u00B3\u00CE\x1C\f\u00D3\u00E3\u00C7\u0093\u00EC{\u0080\u0088>[h\u00B1C\u00D0\x0F\u00BD\u00EE\u0094\u009C\u00B2O;\x7F \u00F8\u00C2\x1E}\u008D\u00C7l|a\u008Fv\u00FE@8e\u009F\u00BC\u00EE\u0094\x0EA?\u00A4\u00D0b\x7F\u00E7e~]o\u008F\x1F\x19jB\u00DF\u00BC\u00EB\u00AFq\u0092F\u00D5\u00E6\u00EDe\u0094{\u00E4Ob\u008B\u00FC\u00EC\u0099\u00FDo\u00D5\u00A1\u00C5(\u00B4\u00DAI\u0093F\u00BC\u00A7\x1D\u00954:qz\u00D9K\u00E1+\u00D6\x07\u00C8\u00DA\u00F2\u00D9\u009Fs\u008B,\x00\x00\x00\x00IEND\u00AEB`\u0082";
 		var dw = "\u0089PNG\r\n\x1A\n\x00\x00\x00\rIHDR\x00\x00\x00\x1E\x00\x00\x00\x1E\b\x06\x00\x00\x00;0\u00AE\u00A2\x00\x00\x00\tpHYs\x00\x00\x0B\x12\x00\x00\x0B\x12\x01\u00D2\u00DD~\u00FC\x00\x00\x01\u0087IDATH\u00C7\u00ED\u00D6\u00BFj\u00C2P\x14\x06\u00F0/A\x05\x11Zw\u00C17(\x04\u00C4\u00C5\"\u00B8\u00B8\u0088\u009B\u00A3O\u00E0\u00E6\u009B8:\u00B9\x19\u00C1A\u0087P:+\u00A8\u008B\u008B\u00E0\u00AE\x10p\u00C8\u0096\n\u00CDU\u00A39\x1D\u00AA6Vcn\u00AE\x14\u0087z K\u00FE\u00FDr\u00B8_8W\"\"\u00DC\u00A3d\u00DC\u00A9\x1E\u00F0\x7F\u0084\u0099\u00AA\u0080\u00A9\u00D5\u009B\u00DF\u00CC\u00D4*\u0098\u00AA\u00F0\u00C1LU\u009C\u008D<\x02P[\u00CD\u00BB\u009A\u00A8\u00B9\x7F\u00B6\u00E6l\u00E4\u0091\x17.\u00FFF\x17\u009Dd\u00B4\u009F\u00CD#\x14\u00DB\x16E\u00F0\u00D5\u00BC\u00AB\u0085b\u00DBb?\u009B\u00C7\u00A2\u0093\u008Cz\u00E2D\x04\u00B2\u009A\u00CA\u00CElYzc@ZdMZdM\u00BD\u0094A\u00B6\u00D1v\u00D8\u00AC\u00A3\x11\x11x\x0E6\u00EBh\u00B6\u00D1vz)\u00E3\u00F8\x1E\u00BD1\u00A0\u009D\u00D9\u00B2\u00C8j*\u00EE{e\x008t:\u00A9\u00A4\u008F\x1F\u00B4\u009C\u00C61,\u00E4$\u00DE\u00CE\x0F\u009D\x0E\x0B9i9\u008D\x1F\u00CFO*\u00E9\u009F\u00CEyS\u00CD\u008B{\u00A1\u00BE\u00A9\u0096#N&Q\u00D2\u0099R\x1F\x07\u00C6\u00FDP\u00A5>F\u00A2\u00A439\u00E2d\u00CE;\u008E\u0096'\"x 4Z\u009E\u00B8\u00AFI'\u00D3\u00C9\u0095l\u00F7z\x1F\u00EA\u00E9\u00C5\u00C4\u00EB{\u008F\u00B6\u009F\u00A17\x00\x10E\u00CF\u00E1\x008\x00\u0088\u00A2\u0097a\x0E<\u00FCl\x03\x00\u00EC\u008F\u00B0\x10\u00EA\rs\u00E0\u0097\u008A\x17\u00BD\u00FE;\u00F9\x04\u00EE\x16\u00D4\x7F:q\u00E2AQ\u00BE\u00B1\u00E8\u0083\u008B\u00A0\u00FC\u00F3\u00D8\x03\x17E\u00AF\u0087\u00CB'p\x00\u0084\u00D1\u00E0\u00F0\u00E9\u00CC\u0086(*\x06\x7F\u00E3\u00F1\u00FD\x12\u0098\u00A2\u009B\x05\u00E9\u00B1\u00A1\x7F\u00C0\x7FU_Tu\u009B2JV\u00AF;\x00\x00\x00\x00IEND\u00AEB`\u0082";
@@ -124,7 +129,7 @@
 		var he = "\u0089PNG\r\n\x1A\n\x00\x00\x00\rIHDR\x00\x00\x00\x14\x00\x00\x00\x14\b\x06\x00\x00\x00\u008D\u0089\x1D\r\x00\x00\x00\tpHYs\x00\x00\x0B\x12\x00\x00\x0B\x12\x01\u00D2\u00DD~\u00FC\x00\x00\x00\u00E8IDAT8\u00CB\u00CD\u0094M\r\x021\x14\u0084\u00BF%\u00DC\u00C1\x01+a% \x01\x14\u00C0s\u00B0\x12\u00C0\x01\x0Efq\x00\x0E@\x01\u00E0\x00\t\u00A0`\u00B9\u00F4\u00F0hvi\u00F99\u00D0\u00A4\u00C9k\u009B|\u009D\u00CE\u00B4-\u00DA\u00B6\u00E5\u0097m\u00D8\u00B7`fc`\nTa\u00EA,i\u0097\x02\x16]\n\u00CDl\tl\u0080Q\u00B4t\x07jIM60\u00C0\u0094\x102\u00EFS;\u0088`e\x04\u00DB\x03\x16\u00FA\u00D1\u00CDor=\u009C\u00B9z-i\u00E56\u00DB\x01\u00D7`\u00C3\u00A4\x0F8\u0088\u00C6\u0095\u00AB\u009F|\u0092t\u00CBI9\x06\u0096\x0Ep\u008D\u00ECh\\H\u00C7\u00DC#\u00D7\u00C0\u00B8#\u00F5\x06X\u00F8\u00A4\u00DF\u00BA6\t\u00D8T\u00D2\u00F9#\u00A0\u0099U\u00C0)\x17\u00D6\u00E5!\u00AFBJ\u00C1r\u0080\u00A5\u00AB\u00B3R.~\u00FD9\u00A4\x14bfUx\u008E\u00DF\x03C(\x07@\u00B9\u00D0\u0094\u00C2\u00A5\u00BB\u00CC\u00F5\u00D7@I5\u00B0\x05.\u00E1o\u00FC\u00C3P\u00DEm\x0F\u00B5\u009AYN<\u00E7\u00FD\u00BC\x00\x00\x00\x00IEND\u00AEB`\u0082";
 
 
-		var pal = (thisObj instanceof Panel) ? thisObj : new Window("palette", qe_loc(qe_str.title) + qe_loc(qe_str.version), undefined, {
+		var pal = (thisObj instanceof Panel) ? thisObj : new Window("palette", qe_str.title + qe_str.version, undefined, {
 			resizeable: true
 		});
 
@@ -143,8 +148,8 @@
                                         clean:IconButton{size:[20,20],alignment:['left','top'],properties:{style:'toolbutton'}},\
                                         help:IconButton{size:[20,20],alignment:['right','top'],properties:{style:'toolbutton'}}},\
                                 circleGroup:Group{orientation:'column',alignment:['right','fill'],\
-                                        cirUp:RadioButton{text:'" + qe_loc(qe_str.absolute) + "',value:true,alignment:['left','top']},\
-                                        cirDn:RadioButton{text:'" + qe_loc(qe_str.relative) + "',alignment:['left','bottom']},},\
+                                        cirUp:RadioButton{text:'" + qe_str.absolute + "',value:true,alignment:['left','top']},\
+                                        cirDn:RadioButton{text:'" + qe_str.relative + "',alignment:['left','bottom']},},\
                                 pick:Group{alignment:['fill','fill'],\
                                         pickB:IconButton{size:[30,30],alignment:['fill','bottom'],properties:{style:'toolbutton'}}}}}";
 
@@ -159,20 +164,20 @@
                                     logo: Image {alignment:['center','fill'],size:[80, 80]}},\
                             },\
                             pnl: Panel { type:'tabbedpanel', \
-                                aboutTab: Panel { type:'tab', text:'" + qe_loc(qe_str.descript) + "',                                 \
-                                    aboutEt: EditText { text:'" + qe_loc(qe_str.desContent) + "', \
+                                aboutTab: Panel { type:'tab', text:'" + qe_str.descript + "',                                 \
+                                    aboutEt: EditText { text:'" + qe_str.desContent() + "', \
                                         preferredSize:[250,100], \
                                         properties:{multiline:true} } },                                 \
-                                usageTab: Panel { type:'tab', text:'" + qe_loc(qe_str.usage) + "',                                 \
-                                    usageEt: EditText { text:'" + qe_loc(qe_str.useContent) + "', preferredSize:[250,100], properties:{multiline:true} }                         }                     },                     \
+                                usageTab: Panel { type:'tab', text:'" + qe_str.usage + "',                                 \
+                                    usageEt: EditText { text:'" + qe_str.useContent + "', preferredSize:[250,100], properties:{multiline:true} }                         }                     },                     \
                             btns: Group {orientation:'row', alignment:['fill','bottom'],                         \
-                                otherScriptsBtn: Button { text:'" + qe_loc(qe_str.other) + "', alignment:['left','center'] },                         \
-                                okBtn: Button { text:'" + qe_loc(qe_str.close) + "', alignment:['right','center'] }                 }             }";
-				var helpWin = new Window("palette", qe_loc(qe_str.about));
+                                otherScriptsBtn: Button { text:'" + qe_str.other + "', alignment:['left','center'] },                         \
+                                okBtn: Button { text:'" + qe_str.close + "', alignment:['right','center'] }                 }             }";
+				var helpWin = new Window("palette", qe_str.about);
 				helpWin.gr = helpWin.add(res);
 				helpWin.gr.btns.otherScriptsBtn.onClick = function () {
 					var cmd = "";
-					var url = qe_loc(qe_str.website);
+					var url = qe_str.website;
 					if ($.os.indexOf("Win") != -1) {
 						if (File("C:/Program Files (x86)/Google/Chrome/Application/chrome.exe").exists) {
 							cmd += "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe " + url
@@ -197,8 +202,8 @@
 				helpWin.gr.logoG.egg2.text.graphics.foregroundColor = pal.graphics.newPen(pal.graphics.BrushType.SOLID_COLOR, bgYellow, 1);
 				helpWin.gr.logoG.egg.text.visible = !1;
 				helpWin.gr.logoG.egg2.text.visible = !1;
-                var loa= "\u0089PNG\r\n\x1A\n\x00\x00\x00\rIHDR\x00\x00\x00P\x00\x00\x00P\b\x03\x00\x00\x00\u00B9\u00CF\x02\u009F\x00\x00\x01\u00FEPLTELiq\u00B4\x00\u00FF\u00B4\x00\u00FF\u00B4\x00\u00FF\u00FF\u00FF\x00\u00B4\x00\u00FF\u00B4\x00\u00FF\u00FF\u00FF\x00\u00B4\x00\u00FF\u00FF\u00FF\x00\u00B4\x00\u00FF\u00FF\u00FF\x00\u00F4\u00DB$\u00FF\u00FF\x00\u00FF\u00FF\x00\u00B4\x00\u00FF\u00FF\u00FF\x00\u00B4\x00\u00FF\u00B4\x00\u00FF\u00B4\x00\u00FF\u00B4\x00\u00FF\u00B4\x00\u00FF\u00FF\u00FF\x00\u00FF\u00FF\x00\u00B4\x00\u00FF\u00B4\x00\u00FF\u00FF\u00FF\x00\u00FF\u00FF\x00\u00FF\u00FF\x00\u00FF\u00FF\x00\u00FF\u00FF\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\u00FE\u00FA\x05\u00B3\x00\u00FE\u00D4n\u0091\u0093k9\u00B3\x00\u00FD\u00B1\x00\u00FB\u00CE\u00C6\f\u00B8\u009F#\u00B0\x00\u00F9\x00\x00\x00\u00A4\x00\u00E8555\u00AB\x00\u00F2s\x00\u00A3\u008F\x00\u00CB\u0081\x00\u00B6   \u00FF\u00FF\x00\x00\x00\x00\x00\x00\x00\u00A9\x00\u00F0\u00A9\x00\u00F0\u0097\x00\u00D6\u00A8\u0089,\u00A9\x00\u00EF\u00B3\x00\u00FE\u0098\x00\u00D8\u00A3\x05\u00E0\u00D8\u00D3\x07?\x00Y\u00A4\x00\u00E8\u0088\x00\u00C1\u0096\x00\u00D49\x00Q\u00B1\x00\u00FA\x00\x00\x00\u00B0\x00\u00F9\u00B2\u008F2\u00DD\u00D8\x07\u00D2\u00C5\x11\u00FF\u00FF\x00\u00B4\x00\u00FF\u00B3\x00\u00FE\u00C7@\u00BF\u00B3\x00\u00FD\u00B1\x00\u00FB\u00AE\x00\u00F6\u00AF\x00\u00F8\u00AC\x00\u00F4\u00B0\x00\u00FA\u00AA\x00\u00F1\u0091\x00\u00CD\u00B2\x00\u00FC\u00A6\x00\u00EB\u00A0\x00\u00E3\u008D\x00\u00C8\u00B0\x00\u00F9\u00A3\x00\u00E7y\x00\u00AB\u00F7\u00F7\x00k\x00\u0097~\x00\u00B2\u00A8\x00\u00EE\u0098\x00\u00D7\u00A2\x00\u00E6\u0099\x00\u00D8\u0088\x00\u00C0~\x00\u00B3\u00A5\x00\u00EA\u0099\x00\u00D9\u00A9\x00\u00EF\u009D\x00\u00DF\u00AC\x00\u00F3\u00A8\x00\u00ED\u00A0\x00\u00E2\u00B4\x00\u00FE\u0082\x00\u00B8w)oo\x00\u009D\u0090\x00\u00CC\u009C\x00\u00DD\u0087\x00\u00BF\u00E1\u00E1\x00s\x00\u00A3\u0094\x00\u00D2t\x0F\u008E\u0095\x00\u00D3\u00AB?\u009A\u00B0<\u00A4\u0083\x00\u00BA\u00B3\x0F\u00E8\u00910\u0088p\x00\u009Et\x00\u00A5\u008C\x00\u00C6\u008B\x00\u00C5\u009D\x00\u00DEp\x00\u009F\u00E6\u00E6\x00\u00A4\x00\u00E9\u009E\x00\u00E0\u0085\x00\u00BC\u00B4*\u00C3\u008CMX\u008C\x00\u00C7\u00A9F\u008C\u0083\x00\u00B9{\x00\u00AEz\x0B\u009D\u00E9\u00E9\x00\u0097\x00\u00D5\u008F\x00\u00CA\u009DA\u0083y\x00\u00AC\u0092\x00\u00CF|\x00\u00B0\u008D2\u0081\u00F8\u00F8\x00\u0084\x00\u00BB\u00B6T\u008B\u00B0Zz\u00B4\x10\u00E8\u009FlI\u009B\x00\u00DC\u0096\x00\u00D4\u0094\x00\u00D1\u008A\x00\u00C4w\x00\u00A9\u0084 \u008D\u0085\x00\u00BD\u00C3g\u0081\u0080\x19\u0092\u009F\x00\u00E1\u0081\x00\u00B7|\x00\u00AF\u00AE\x00\u00F7\u00F0\u00B2\x1A\u0091\x00\x00\x00JtRNS\x00\u00F0`0\u00C0\x10\u00A0\u0080\u0080@\u00D0\u00F0\u00E0P \u00E0\x10Pp@ \u0090\u00D0p\u00B0\u00C0\u00E0\u00B00\u00A0`\x04\x03\f\u00C4\u00F0\u0094\u00FC\u00E0A\u00F6\u00F5Q\x01\u00F1\x01\u00A3\u00F5]\u00B3\x01\u0090\x0B\x07\u00E2\x11{\u00F9\u00B3\u00D0{\u0098\u00FA(f\u00E7\u00AB,1\x02\u00F0\u00F8\u00F6\u00F5\x1C\u00A7\x07\u00E3\x00\x00\x00\tpHYs\x00\x00\x01\n\x00\x00\x01\n\x01\x16\u00A4\u00BC\u00CB\x00\x00\x03mIDATX\t\u00ED\u0098\u00E7S\"A\x10\u00C5\x1B\x11\x059eU\x04\x15L\u0097s\u00CE9\u0087]O\u0090\x03\u00C3\u0099s\u00BA\u009Cs\u00CE9\u00E7\u009C\u00EF\u00BF\u00BC\x02J\u0098\u00EE\u00ED\u0099\u00F5\u00AA\u00A8\u00BB/\u00BCO\u0096\u00CD\u00BE\u00EAy\u00BF\u00DD\u0099\u00DE\u0085\u00AC\u00B2\u00CA\u00EA\x7F\u00CB\u0095o\u0096\x06NQ\u00A5\u00B4E\u0087\x13\u00ABX,\x06t\u00B3\u00FCPn\b*\u00A0\u0086y\x06\u0092\u00CD.\x16+\x19C\x1F\x14\u00A3+\u00EC\u00D8/\x07\u00FB\x199bQc\u00FCt=\b\x1E\u00F1\u008A<\u00E4g\u00B7a?\\u\u00B1\u0086U\u00E0Dkr\u0088\x01\x16`\u00BF\x02\x072\u00CCg\r\u00DD\u009AW\u00BA(e\u0080\x00\u00B9\u00AC\u00A1^\r\x15\x12,\u00CA\x00\x01\u00C0\u00CD\x1B\u00FA\u00C8\u0085\u00A96\u00D4\x01\x02\x14\u00F1~\u00BA^\x046\u00EE:\u008B\x00\x01\ne\u0086K\u00A0\f%5\u00B1\x00eL\u00E2X\u0080\u00C3b\x15\u00A0\u0094I\x02\x0BZ]\u00C5D\x02\u00A4Lr\u00C5\u0087\u00DAE\u00DA\u00F1\x02\u00AC\u0098\u00BE_\x1D e\u00E2\u00C7E\x07\u00EA\u00A7\f`\u00F5\u009Ezu\u0080\u0094\u0089\u008BT\x11\x01\x1B\u00AC\u00BD\x1EnP\x07H\u0099\u00D0\u00AA\x1D-p\u00DD\u009D\x1B\u00D1\u0090\u00D0\"\x13 a\u00E23\u0095\x11\u0096\u00BB\u00F7\x1E57\u00A6[d\x02\u00A4L\u00AAL\u00E5\x12\u00D1\u00F0\u00D6\u00D3\u00C7-\u00A3\u00A9\x16\u00B9\x00-\u0098\u00C4\u00B1\u00A05?\u00F9:4\u00B6w\u00DC\u0090\x0B\u00D0\u008A\t\u00C5\u00F2\u00FAW\u00AC7\u00D2T/\x0F\u00D0\u008A\t\x00\u0094\u008A\u0086o\u00BF\u00F4\u00BF\x1FN\u00B6\u00C8\x07h\u00C9\x04\x00o\u00DCo\x06>\u00B6%\u00EE\x1C>@\u00D3s\u00E2b4u\u00B7\u00A0o\u00DF?\u008DD\u00E377\x1F\u00A0b\u00EF\u0092i\u00C7\u00CF\x0F\u0083\u00BF\x1Bd\x01*\u00F6.\u0099v~n\u00FD1\x1AZ#\tP\u00B1w\u00C9\u00F4\u00F2\u00DD\u00AB\u00BE\u00B1\u00ED[e~\u008A\u00BDK\u00A6]\u00CF\u009F\u00B5m\u00DC&5\u0094\u009C'\n=|\u00D1\u00BA\u00B9\u00AEv^\u00A6\u0098\u00E8\u00FA\u00FA\x07\u009B\u00B6\u00D4\u00D5,\u00CE\x14\x13\u00FD\u00DA\u00ED\u00FB\u00B1\rKk3\u00C6\u00A4c\u00D5\u00D5\u009B=+\u0097\u00CD\u00C9\x18\u0093\u0099\u009D]\u00B1\u0096\u00E55\x19cr\u00EC`\u00FB\u00A5+\u00DD\u008D3d\u0086\x7F\u00CB\u00A4c\u00DA\u00F1\u00A3=\u0083\u00E1\x06\u00C9FC\u0099\u00F8r\u00CD\u009A<I\u00D4\u00ACC\x07N\u00F4FB\u0086!{P0\x13\u008D\u00F9\x05\u009A\u0097\u00CEtv\x1D\u00DE\x17\u008D\u00EF^%\x13aR\u00C9\u00FC\x00\u00CD\"\u00E7N\u00B6_>\u00D2\u009D8S<\x12C\u00C4$`\u00AE\u00E3\u00A9\u00F8\u00FC\u00C5\u00FE\u00BE\u00E6pS\u00E2o\u00D3\x10\u009F\x10f\u0092o\u00AA{\u00D11\x7F\u00FA\u00C2\u00D9Sm\u0091\u0090j\u00FF\u00B7:O\u00F0\u00DC\u00B6` \u00D6\x12M\r\x0E,\x16\x0B&(@\u00A3|Q\u00EB\u00C8p\u00FAPf\u00B1\u00A8\u0099\u00E0\x00=\u008E\u0085C\u00CD\u00E1\u00A6\u00D4\u00D8\u00C0bQ2\u00C1\x01\u00C6)\u00CC\u008D\u0088c\b\u0083E\u00C9\u0084\f\u00BEe\x000\x1FM^\f\x16%\x13<\u00F8z\u00E2\ff\u00A3\u00C1\u008B\u00C1\u0082\u0099\x14\n\x07\u00A8F\x07\u00DF\u00E4!<\x05\u00FD\u00CF\u008CE\u00BAw\x05\u00E8\u00E0\u00EBd\u00BBV3\x11yk$\u00C0\u00F1w\x1E\u00CC\u00DD\u0084E\u00BAw\x05I+\u00E9\u00A9\x03\u00F7M\u00B1\u00C8\u00CE\x13?\r0\x1D\x16yE!X$\u00E7I\u0080\u008C\u00C1\u00C9\u00B7\tv\u00CD\x04\x0B\u00CF\u00A4Rs\u00A0q\u00CB\u00B0y\u0085k\u00F0\u009A\t\x16\u0096\u0089;\u0088?\r\u00901\u008B\u00AC\x19a\u00E1\u0099T\u00E3\u00A1\u00DA0\u00CAQ\x13d\u00CD\b\x0B\u00CB\u00A4\u008A\x06h#\u00C1\u00E3*\u00C2\u00C21\u00F1\u00D1\x00\u008Db\u00ECG\u00F3\x10\u00B10L\u00DCA|(%\u00F7\x04$rG\u0089X\u00FC\u00E6\u008F?\u0085\u00E0%\u009FwL\x1B\x00\u00FD\u00FE#\x1D<\u00B3\u00CA*\u00AB\x7F \x00\u00F8\x03\u0080\u008B\be\u0087N.\u00DF\x00\x00\x00\x00IEND\u00AEB`\u0082";                
-                helpWin.gr.logoG.imageG.logo.image = ScriptUI.newImage(loa);
+				var loa = "\u0089PNG\r\n\x1A\n\x00\x00\x00\rIHDR\x00\x00\x00P\x00\x00\x00P\b\x03\x00\x00\x00\u00B9\u00CF\x02\u009F\x00\x00\x01\u00FEPLTELiq\u00B4\x00\u00FF\u00B4\x00\u00FF\u00B4\x00\u00FF\u00FF\u00FF\x00\u00B4\x00\u00FF\u00B4\x00\u00FF\u00FF\u00FF\x00\u00B4\x00\u00FF\u00FF\u00FF\x00\u00B4\x00\u00FF\u00FF\u00FF\x00\u00F4\u00DB$\u00FF\u00FF\x00\u00FF\u00FF\x00\u00B4\x00\u00FF\u00FF\u00FF\x00\u00B4\x00\u00FF\u00B4\x00\u00FF\u00B4\x00\u00FF\u00B4\x00\u00FF\u00B4\x00\u00FF\u00FF\u00FF\x00\u00FF\u00FF\x00\u00B4\x00\u00FF\u00B4\x00\u00FF\u00FF\u00FF\x00\u00FF\u00FF\x00\u00FF\u00FF\x00\u00FF\u00FF\x00\u00FF\u00FF\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\u00FE\u00FA\x05\u00B3\x00\u00FE\u00D4n\u0091\u0093k9\u00B3\x00\u00FD\u00B1\x00\u00FB\u00CE\u00C6\f\u00B8\u009F#\u00B0\x00\u00F9\x00\x00\x00\u00A4\x00\u00E8555\u00AB\x00\u00F2s\x00\u00A3\u008F\x00\u00CB\u0081\x00\u00B6   \u00FF\u00FF\x00\x00\x00\x00\x00\x00\x00\u00A9\x00\u00F0\u00A9\x00\u00F0\u0097\x00\u00D6\u00A8\u0089,\u00A9\x00\u00EF\u00B3\x00\u00FE\u0098\x00\u00D8\u00A3\x05\u00E0\u00D8\u00D3\x07?\x00Y\u00A4\x00\u00E8\u0088\x00\u00C1\u0096\x00\u00D49\x00Q\u00B1\x00\u00FA\x00\x00\x00\u00B0\x00\u00F9\u00B2\u008F2\u00DD\u00D8\x07\u00D2\u00C5\x11\u00FF\u00FF\x00\u00B4\x00\u00FF\u00B3\x00\u00FE\u00C7@\u00BF\u00B3\x00\u00FD\u00B1\x00\u00FB\u00AE\x00\u00F6\u00AF\x00\u00F8\u00AC\x00\u00F4\u00B0\x00\u00FA\u00AA\x00\u00F1\u0091\x00\u00CD\u00B2\x00\u00FC\u00A6\x00\u00EB\u00A0\x00\u00E3\u008D\x00\u00C8\u00B0\x00\u00F9\u00A3\x00\u00E7y\x00\u00AB\u00F7\u00F7\x00k\x00\u0097~\x00\u00B2\u00A8\x00\u00EE\u0098\x00\u00D7\u00A2\x00\u00E6\u0099\x00\u00D8\u0088\x00\u00C0~\x00\u00B3\u00A5\x00\u00EA\u0099\x00\u00D9\u00A9\x00\u00EF\u009D\x00\u00DF\u00AC\x00\u00F3\u00A8\x00\u00ED\u00A0\x00\u00E2\u00B4\x00\u00FE\u0082\x00\u00B8w)oo\x00\u009D\u0090\x00\u00CC\u009C\x00\u00DD\u0087\x00\u00BF\u00E1\u00E1\x00s\x00\u00A3\u0094\x00\u00D2t\x0F\u008E\u0095\x00\u00D3\u00AB?\u009A\u00B0<\u00A4\u0083\x00\u00BA\u00B3\x0F\u00E8\u00910\u0088p\x00\u009Et\x00\u00A5\u008C\x00\u00C6\u008B\x00\u00C5\u009D\x00\u00DEp\x00\u009F\u00E6\u00E6\x00\u00A4\x00\u00E9\u009E\x00\u00E0\u0085\x00\u00BC\u00B4*\u00C3\u008CMX\u008C\x00\u00C7\u00A9F\u008C\u0083\x00\u00B9{\x00\u00AEz\x0B\u009D\u00E9\u00E9\x00\u0097\x00\u00D5\u008F\x00\u00CA\u009DA\u0083y\x00\u00AC\u0092\x00\u00CF|\x00\u00B0\u008D2\u0081\u00F8\u00F8\x00\u0084\x00\u00BB\u00B6T\u008B\u00B0Zz\u00B4\x10\u00E8\u009FlI\u009B\x00\u00DC\u0096\x00\u00D4\u0094\x00\u00D1\u008A\x00\u00C4w\x00\u00A9\u0084 \u008D\u0085\x00\u00BD\u00C3g\u0081\u0080\x19\u0092\u009F\x00\u00E1\u0081\x00\u00B7|\x00\u00AF\u00AE\x00\u00F7\u00F0\u00B2\x1A\u0091\x00\x00\x00JtRNS\x00\u00F0`0\u00C0\x10\u00A0\u0080\u0080@\u00D0\u00F0\u00E0P \u00E0\x10Pp@ \u0090\u00D0p\u00B0\u00C0\u00E0\u00B00\u00A0`\x04\x03\f\u00C4\u00F0\u0094\u00FC\u00E0A\u00F6\u00F5Q\x01\u00F1\x01\u00A3\u00F5]\u00B3\x01\u0090\x0B\x07\u00E2\x11{\u00F9\u00B3\u00D0{\u0098\u00FA(f\u00E7\u00AB,1\x02\u00F0\u00F8\u00F6\u00F5\x1C\u00A7\x07\u00E3\x00\x00\x00\tpHYs\x00\x00\x01\n\x00\x00\x01\n\x01\x16\u00A4\u00BC\u00CB\x00\x00\x03mIDATX\t\u00ED\u0098\u00E7S\"A\x10\u00C5\x1B\x11\x059eU\x04\x15L\u0097s\u00CE9\u0087]O\u0090\x03\u00C3\u0099s\u00BA\u009Cs\u00CE9\u00E7\u009C\u00EF\u00BF\u00BC\x02J\u0098\u00EE\u00ED\u0099\u00F5\u00AA\u00A8\u00BB/\u00BCO\u0096\u00CD\u00BE\u00EAy\u00BF\u00DD\u0099\u00DE\u0085\u00AC\u00B2\u00CA\u00EA\x7F\u00CB\u0095o\u0096\x06NQ\u00A5\u00B4E\u0087\x13\u00ABX,\x06t\u00B3\u00FCPn\b*\u00A0\u0086y\x06\u0092\u00CD.\x16+\x19C\x1F\x14\u00A3+\u00EC\u00D8/\x07\u00FB\x199bQc\u00FCt=\b\x1E\u00F1\u008A<\u00E4g\u00B7a?\\u\u00B1\u0086U\u00E0Dkr\u0088\x01\x16`\u00BF\x02\x072\u00CCg\r\u00DD\u009AW\u00BA(e\u0080\x00\u00B9\u00AC\u00A1^\r\x15\x12,\u00CA\x00\x01\u00C0\u00CD\x1B\u00FA\u00C8\u0085\u00A96\u00D4\x01\x02\x14\u00F1~\u00BA^\x046\u00EE:\u008B\x00\x01\ne\u0086K\u00A0\f%5\u00B1\x00eL\u00E2X\u0080\u00C3b\x15\u00A0\u0094I\x02\x0BZ]\u00C5D\x02\u00A4Lr\u00C5\u0087\u00DAE\u00DA\u00F1\x02\u00AC\u0098\u00BE_\x1D e\u00E2\u00C7E\x07\u00EA\u00A7\f`\u00F5\u009Ezu\u0080\u0094\u0089\u008BT\x11\x01\x1B\u00AC\u00BD\x1EnP\x07H\u0099\u00D0\u00AA\x1D-p\u00DD\u009D\x1B\u00D1\u0090\u00D0\"\x13 a\u00E23\u0095\x11\u0096\u00BB\u00F7\x1E57\u00A6[d\x02\u00A4L\u00AAL\u00E5\x12\u00D1\u00F0\u00D6\u00D3\u00C7-\u00A3\u00A9\x16\u00B9\x00-\u0098\u00C4\u00B1\u00A05?\u00F9:4\u00B6w\u00DC\u0090\x0B\u00D0\u008A\t\u00C5\u00F2\u00FAW\u00AC7\u00D2T/\x0F\u00D0\u008A\t\x00\u0094\u008A\u0086o\u00BF\u00F4\u00BF\x1FN\u00B6\u00C8\x07h\u00C9\x04\x00o\u00DCo\x06>\u00B6%\u00EE\x1C>@\u00D3s\u00E2b4u\u00B7\u00A0o\u00DF?\u008DD\u00E377\x1F\u00A0b\u00EF\u0092i\u00C7\u00CF\x0F\u0083\u00BF\x1Bd\x01*\u00F6.\u0099v~n\u00FD1\x1AZ#\tP\u00B1w\u00C9\u00F4\u00F2\u00DD\u00AB\u00BE\u00B1\u00ED[e~\u008A\u00BDK\u00A6]\u00CF\u009F\u00B5m\u00DC&5\u0094\u009C'\n=|\u00D1\u00BA\u00B9\u00AEv^\u00A6\u0098\u00E8\u00FA\u00FA\x07\u009B\u00B6\u00D4\u00D5,\u00CE\x14\x13\u00FD\u00DA\u00ED\u00FB\u00B1\rKk3\u00C6\u00A4c\u00D5\u00D5\u009B=+\u0097\u00CD\u00C9\x18\u0093\u0099\u009D]\u00B1\u0096\u00E55\x19cr\u00EC`\u00FB\u00A5+\u00DD\u008D3d\u0086\x7F\u00CB\u00A4c\u00DA\u00F1\u00A3=\u0083\u00E1\x06\u00C9FC\u0099\u00F8r\u00CD\u009A<I\u00D4\u00ACC\x07N\u00F4FB\u0086!{P0\x13\u008D\u00F9\x05\u009A\u0097\u00CEtv\x1D\u00DE\x17\u008D\u00EF^%\x13aR\u00C9\u00FC\x00\u00CD\"\u00E7N\u00B6_>\u00D2\u009D8S<\x12C\u00C4$`\u00AE\u00E3\u00A9\u00F8\u00FC\u00C5\u00FE\u00BE\u00E6pS\u00E2o\u00D3\x10\u009F\x10f\u0092o\u00AA{\u00D11\x7F\u00FA\u00C2\u00D9Sm\u0091\u0090j\u00FF\u00B7:O\u00F0\u00DC\u00B6` \u00D6\x12M\r\x0E,\x16\x0B&(@\u00A3|Q\u00EB\u00C8p\u00FAPf\u00B1\u00A8\u0099\u00E0\x00=\u008E\u0085C\u00CD\u00E1\u00A6\u00D4\u00D8\u00C0bQ2\u00C1\x01\u00C6)\u00CC\u008D\u0088c\b\u0083E\u00C9\u0084\f\u00BEe\x000\x1FM^\f\x16%\x13<\u00F8z\u00E2\ff\u00A3\u00C1\u008B\u00C1\u0082\u0099\x14\n\x07\u00A8F\x07\u00DF\u00E4!<\x05\u00FD\u00CF\u008CE\u00BAw\x05\u00E8\u00E0\u00EBd\u00BBV3\x11yk$\u00C0\u00F1w\x1E\u00CC\u00DD\u0084E\u00BAw\x05I+\u00E9\u00A9\x03\u00F7M\u00B1\u00C8\u00CE\x13?\r0\x1D\x16yE!X$\u00E7I\u0080\u008C\u00C1\u00C9\u00B7\tv\u00CD\x04\x0B\u00CF\u00A4Rs\u00A0q\u00CB\u00B0y\u0085k\u00F0\u009A\t\x16\u0096\u0089;\u0088?\r\u00901\u008B\u00AC\x19a\u00E1\u0099T\u00E3\u00A1\u00DA0\u00CAQ\x13d\u00CD\b\x0B\u00CB\u00A4\u008A\x06h#\u00C1\u00E3*\u00C2\u00C21\u00F1\u00D1\x00\u008Db\u00ECG\u00F3\x10\u00B10L\u00DCA|(%\u00F7\x04$rG\u0089X\u00FC\u00E6\u008F?\u0085\u00E0%\u009FwL\x1B\x00\u00FD\u00FE#\x1D<\u00B3\u00CA*\u00AB\x7F \x00\u00F8\x03\u0080\u008B\be\u0087N.\u00DF\x00\x00\x00\x00IEND\u00AEB`\u0082";
+				helpWin.gr.logoG.imageG.logo.image = ScriptUI.newImage(loa);
 				var eggCount = 0;
 				helpWin.gr.logoG.imageG.logo.addEventListener("mouseover", function () {
 
@@ -265,13 +270,13 @@
 			};
 
 			//button help tips
-			pal.grp.rightPart.pick.pickB.helpTip = qe_loc(qe_str.pickTip);
-			pal.grp.rightPart.buttonGrop.clean.helpTip = qe_loc(qe_str.cleanTip);
-			pal.grp.leftPart.buttonGrop.beauty.helpTip = qe_loc(qe_str.beautyTip);
-			pal.grp.leftPart.buttonGrop.delete.helpTip = qe_loc(qe_str.deleteTip);
-			pal.grp.leftPart.buttonGrop.toggle.helpTip = qe_loc(qe_str.toggleTip);
-			pal.grp.leftPart.buttonGrop.export.helpTip = qe_loc(qe_str.exportTip);
-			pal.grp.leftPart.buttonGrop.import.helpTip = qe_loc(qe_str.importTip);
+			pal.grp.rightPart.pick.pickB.helpTip = qe_str.pickTip;
+			pal.grp.rightPart.buttonGrop.clean.helpTip = qe_str.cleanTip;
+			pal.grp.leftPart.buttonGrop.beauty.helpTip = qe_str.beautyTip;
+			pal.grp.leftPart.buttonGrop.delete.helpTip = qe_str.deleteTip;
+			pal.grp.leftPart.buttonGrop.toggle.helpTip = qe_str.toggleTip;
+			pal.grp.leftPart.buttonGrop.export.helpTip = qe_str.exportTip;
+			pal.grp.leftPart.buttonGrop.import.helpTip = qe_str.importTip;
 		}
 		return pal
 	}
@@ -312,7 +317,7 @@
 			pal.grp.leftPart.txtArea.text = pal.grp.rightPart.circleGroup.cirUp.value ? qe_clean2quote("comp(\"" + comp.name + "\")" + ".layer(\"" + deepProp.parentProperty.name + "\")." + endExp) : qe_clean2quote("thisLayer." + endExp)
 			return targetProp
 		} else {
-			alert(qe_loc(qe_str.errorOneProp))
+			alert(qe_str.errorOneProp)
 		}
 	}
 
@@ -340,18 +345,18 @@
 	}
 
 	function qe_importExp(pal) {
-		app.beginUndoGroup(qe_loc(qe_str.title));
+		app.beginUndoGroup(qe_str.title);
 		var comp = app.project.activeItem;
 		if (qe_actItem(comp) && !qe_check2prop(comp)) {
 			pal.grp.leftPart.txtArea.text = comp.selectedProperties[comp.selectedProperties.length - 1].expression
 		} else {
-			alert(qe_loc(qe_str.errorOneProp))
+			alert(qe_str.errorOneProp)
 		}
 		app.endUndoGroup();
 	}
 
 	function qe_exportExp(pal) {
-		app.beginUndoGroup(qe_loc(qe_str.title));
+		app.beginUndoGroup(qe_str.title);
 		var comp = app.project.activeItem;
 		if (qe_actItem(comp)) {
 
@@ -362,7 +367,7 @@
 					comp.selectedProperties[i].expression = pal.grp.leftPart.txtArea.text
 
 				} else {
-					//alert(qe_loc(qe_str.errorNotSet))
+					//alert(qe_str.errorNotSet)
 				}
 			}
 		}
@@ -379,7 +384,7 @@
 	}
 
 	function qe_deleteExp(pal) {
-		app.beginUndoGroup(qe_loc(qe_str.title));
+		app.beginUndoGroup(qe_str.title);
 		var comp = app.project.activeItem;
 		if (qe_actItem(comp)) {
 			for (var i = 0; i < comp.selectedProperties.length; i++) {
@@ -393,7 +398,7 @@
 
 
 	function qe_beauty(pal) {
-		app.beginUndoGroup(qe_loc(qe_str.title));
+		app.beginUndoGroup(qe_str.title);
 		var comp = app.project.activeItem;
 		if (qe_actItem(comp)) {
 			for (var i = 0; i < comp.selectedProperties.length; i++) {
