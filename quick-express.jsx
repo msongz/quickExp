@@ -93,10 +93,10 @@
 		},
 		desContent: {
 			en: function () {
-				return this.title + this.version + "\\n" + this.copyright + "\\n" + this.mail + "\\n\\nthis scritp allows you to operate the properties\\' expression quickly and convenience\\n\\nsuper thanks:\\nredefinery.com\\njsbeautifier.org"
+				return this.title + this.version + "\\n" + this.copyright + "\\n" + this.mail + "\\n\\nthis scritp allows you to operate the properties\\' expression quickly and convenience\\n\\nsuper thanks:\\nredefinery.com\\njsbeautifier.org";
 			},
 			cn: function () {
-				return this.title + this.version + "\\n" + this.copyright + "\\n" + this.mail + "\\n\\n这个脚本提供你方便快捷的操作属性的表达式\\n\\n特别感谢:\\nredefinery.com\\njsbeautifier.org"
+				return this.title + this.version + "\\n" + this.copyright + "\\n" + this.mail + "\\n\\n这个脚本提供你方便快捷的操作属性的表达式\\n\\n特别感谢:\\nredefinery.com\\njsbeautifier.org";
 			}
 		},
 		cleanTip: {
@@ -110,9 +110,13 @@
 	};
 
 	//localize
-	for (var i in qe_str) "zh_CN" == app.isoLanguage ?
-		qe_str[i] = qe_str[i].cn :
-		qe_str[i] = qe_str[i].en;
+	for (var i in qe_str) {
+		if ("zh_CN" == app.isoLanguage) {
+			qe_str[i] = qe_str[i].cn;
+		} else {
+			qe_str[i] = qe_str[i].en;
+		}
+	}
 
 	//UI
 	function qe_buildUI(thisObj) {
@@ -135,44 +139,44 @@
 
 		if (pal !== null) {
 			var res = "group{orientation:'row',alignment:['fill','fill'],\
-                        leftPart:Group{orientation:'column',alignment:['fill','fill'],\
-                                txtArea:EditText{text:'',properties:{'multiline':true},alignment:['fill','fill'],minimumSize:[0,0]},\
-                                buttonGrop:Group{orientation:'row',alignment:['fill','bottom'],\
-                                        export:IconButton{size:[30,30],alignment:['left','bottom'],properties:{style:'toolbutton'}},\
-                                        import:IconButton{size:[30,30],alignment:['left','bottom'],properties:{style:'toolbutton'}},\
-                                        toggle:IconButton{size:[30,30],alignment:['left','bottom'],properties:{style:'toolbutton'}},\
-                                        delete:IconButton{size:[30,30],alignment:['left','bottom'],properties:{style:'toolbutton'}},\
-                                        beauty:IconButton{size:[30,30],alignment:['right','bottom'],properties:{style:'toolbutton'}}}},\
-                        rightPart:Group{orientation:'column',alignment:['right','fill'],\
-                                buttonGrop:Group{orientation:'row',alignment:['fill','fill'],\
-                                        clean:IconButton{size:[20,20],alignment:['left','top'],properties:{style:'toolbutton'}},\
-                                        help:IconButton{size:[20,20],alignment:['right','top'],properties:{style:'toolbutton'}}},\
-                                circleGroup:Group{orientation:'column',alignment:['right','fill'],\
-                                        cirUp:RadioButton{text:'" + qe_str.absolute + "',value:true,alignment:['left','top']},\
-                                        cirDn:RadioButton{text:'" + qe_str.relative + "',alignment:['left','bottom']},},\
-                                pick:Group{alignment:['fill','fill'],\
-                                        pickB:IconButton{size:[30,30],alignment:['fill','bottom'],properties:{style:'toolbutton'}}}}}";
+						leftPart:Group{orientation:'column',alignment:['fill','fill'],\
+								txtArea:EditText{text:'',properties:{'multiline':true},alignment:['fill','fill'],minimumSize:[0,0]},\
+								buttonGrop:Group{orientation:'row',alignment:['fill','bottom'],\
+										export:IconButton{size:[30,30],alignment:['left','bottom'],properties:{style:'toolbutton'}},\
+										import:IconButton{size:[30,30],alignment:['left','bottom'],properties:{style:'toolbutton'}},\
+										toggle:IconButton{size:[30,30],alignment:['left','bottom'],properties:{style:'toolbutton'}},\
+										delete:IconButton{size:[30,30],alignment:['left','bottom'],properties:{style:'toolbutton'}},\
+										beauty:IconButton{size:[30,30],alignment:['right','bottom'],properties:{style:'toolbutton'}}}},\
+						rightPart:Group{orientation:'column',alignment:['right','fill'],\
+								buttonGrop:Group{orientation:'row',alignment:['fill','fill'],\
+										clean:IconButton{size:[20,20],alignment:['left','top'],properties:{style:'toolbutton'}},\
+										help:IconButton{size:[20,20],alignment:['right','top'],properties:{style:'toolbutton'}}},\
+								circleGroup:Group{orientation:'column',alignment:['right','fill'],\
+										cirUp:RadioButton{text:'" + qe_str.absolute + "',value:true,alignment:['left','top']},\
+										cirDn:RadioButton{text:'" + qe_str.relative + "',alignment:['left','bottom']},},\
+								pick:Group{alignment:['fill','fill'],\
+										pickB:IconButton{size:[30,30],alignment:['fill','bottom'],properties:{style:'toolbutton'}}}}}";
 
 			var qe_help = function () {
-				var res = "group {orientation:'column', alignment:['fill','fill'], alignChildren:['fill','fill'],                             \
-                                    logoG:Group{orientation:'stack',\
-                                egg: Group{alignment:['fill','fill'],margins:[190,0,0,3],\
-                                    text:StaticText {text:'MAKE THINGS BETTER!\\nsss',alignment:['center','center']}}\
-                                egg2: Group{alignment:['fill','fill'],margins:[0,0,0,3],\
-                                    text:StaticText {text:'KEEP CREATING AND',alignment:['left','center']}}\
-                                imageG:Group{orientation:'row',alignment:['fill','fill'],\
-                                    logo: Image {alignment:['center','fill'],size:[80, 80]}},\
-                            },\
-                            pnl: Panel { type:'tabbedpanel', \
-                                aboutTab: Panel { type:'tab', text:'" + qe_str.descript + "',                                 \
-                                    aboutEt: EditText { text:'" + qe_str.desContent() + "', \
-                                        preferredSize:[250,100], \
-                                        properties:{multiline:true} } },                                 \
-                                usageTab: Panel { type:'tab', text:'" + qe_str.usage + "',                                 \
-                                    usageEt: EditText { text:'" + qe_str.useContent + "', preferredSize:[250,100], properties:{multiline:true} }                         }                     },                     \
-                            btns: Group {orientation:'row', alignment:['fill','bottom'],                         \
-                                otherScriptsBtn: Button { text:'" + qe_str.other + "', alignment:['left','center'] },                         \
-                                okBtn: Button { text:'" + qe_str.close + "', alignment:['right','center'] }                 }             }";
+				var res = "group {orientation:'column', alignment:['fill','fill'], alignChildren:['fill','fill'],\
+							logoG:Group{orientation:'stack',\
+								egg: Group{alignment:['fill','fill'],margins:[190,0,0,3],\
+									text:StaticText {text:'MAKE THINGS BETTER!\\nsss',alignment:['center','center']}}\
+								egg2: Group{alignment:['fill','fill'],margins:[0,0,0,3],\
+									text:StaticText {text:'KEEP CREATING AND',alignment:['left','center']}}\
+								imageG:Group{orientation:'row',alignment:['fill','fill'],\
+									logo: Image {alignment:['center','fill'],size:[80, 80]}},\
+							},\
+							pnl: Panel { type:'tabbedpanel', \
+								aboutTab: Panel { type:'tab', text:'" + qe_str.descript + "',\
+									aboutEt: EditText { text:'" + qe_str.desContent() + "', \
+										preferredSize:[250,100], \
+										properties:{multiline:true} } },\
+								usageTab: Panel { type:'tab', text:'" + qe_str.usage + "',\
+										usageEt: EditText { text:'" + qe_str.useContent + "', preferredSize:[250,100], properties:{multiline:true} }}},\
+							btns: Group {orientation:'row', alignment:['fill','bottom'],\
+								otherScriptsBtn: Button { text:'" + qe_str.other + "', alignment:['left','center'] },\
+								okBtn: Button { text:'" + qe_str.close + "', alignment:['right','center']}}}";
 				var helpWin = new Window("palette", qe_str.about);
 				helpWin.gr = helpWin.add(res);
 				helpWin.gr.btns.otherScriptsBtn.onClick = function () {
@@ -180,23 +184,23 @@
 					var url = qe_str.website;
 					if ($.os.indexOf("Win") != -1) {
 						if (File("C:/Program Files (x86)/Google/Chrome/Application/chrome.exe").exists) {
-							cmd += "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe " + url
+							cmd += "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe " + url;
 						} else if (File("C:/Program Files (x86)/Mozilla Firefox/firefox.exe").exists) {
-							cmd += "C:/Program Files (x86)/Mozilla Firefox/firefox.exe " + url
+							cmd += "C:/Program Files (x86)/Mozilla Firefox/firefox.exe " + url;
 						} else {
-							cmd += "C:/Program Files/Internet Explorer/iexplore.exe " + url
+							cmd += "C:/Program Files/Internet Explorer/iexplore.exe " + url;
 						}
 					} else {
-						cmd += "open " + url
+						cmd += "open " + url;
 					}
 					try {
-						system.callSystem(cmd)
+						system.callSystem(cmd);
 					} catch (e) {
-						alert(e)
+						alert(e);
 					}
 				};
 				helpWin.gr.btns.okBtn.onClick = function () {
-					helpWin.close()
+					helpWin.close();
 				};
 				helpWin.gr.logoG.egg.text.graphics.foregroundColor = pal.graphics.newPen(pal.graphics.BrushType.SOLID_COLOR, bgPink, 1);
 				helpWin.gr.logoG.egg2.text.graphics.foregroundColor = pal.graphics.newPen(pal.graphics.BrushType.SOLID_COLOR, bgYellow, 1);
@@ -213,16 +217,16 @@
 				});
 
 				helpWin.center();
-				helpWin.show()
-			}
+				helpWin.show();
+			};
 
 			pal.grp = pal.add(res);
 			pal.layout.layout(true);
 			pal.grp.minimumSize = pal.grp.size;
 			pal.layout.resize();
 			pal.onResizing = pal.onResize = function () {
-				this.layout.resize()
-			}
+				this.layout.resize();
+			};
 
 			//button images
 
@@ -234,39 +238,39 @@
 			pal.grp.rightPart.pick.pickB.image = ScriptUI.newImage(xi);
 			pal.grp.rightPart.buttonGrop.clean.image = ScriptUI.newImage(cl);
 			pal.grp.rightPart.buttonGrop.help.image = ScriptUI.newImage(he);
-			pal.grp.rightPart.circleGroup.cirUp.enabled = false
-			pal.grp.rightPart.circleGroup.cirDn.enabled = false
+			pal.grp.rightPart.circleGroup.cirUp.enabled = false;
+			pal.grp.rightPart.circleGroup.cirDn.enabled = false;
 
 			//button function
 			pal.grp.rightPart.buttonGrop.clean.onClick = function () {
-				qe_cleanTxt(this.parent.parent.parent.parent)
-			}
+				qe_cleanTxt(this.parent.parent.parent.parent);
+			};
 			pal.grp.leftPart.buttonGrop.import.onClick = function () {
-				qe_importExp(this.parent.parent.parent.parent)
+				qe_importExp(this.parent.parent.parent.parent);
 			};
 			pal.grp.leftPart.buttonGrop.export.onClick = function () {
-				qe_exportExp(this.parent.parent.parent.parent)
+				qe_exportExp(this.parent.parent.parent.parent);
 			};
 			pal.grp.leftPart.buttonGrop.toggle.onClick = function () {
-				qe_toggleExp(this.parent.parent.parent.parent)
+				qe_toggleExp(this.parent.parent.parent.parent);
 			};
 			pal.grp.leftPart.buttonGrop.delete.onClick = function () {
-				qe_deleteExp(this.parent.parent.parent.parent)
+				qe_deleteExp(this.parent.parent.parent.parent);
 			};
 			pal.grp.leftPart.buttonGrop.beauty.onClick = function () {
-				qe_beauty(this.parent.parent.parent.parent)
+				qe_beauty(this.parent.parent.parent.parent);
 			};
 			pal.grp.rightPart.pick.pickB.onClick = function () {
-				qe_pickProp(this.parent.parent.parent.parent)
+				qe_pickProp(this.parent.parent.parent.parent);
 			};
 			pal.grp.rightPart.circleGroup.cirUp.onClick = function () {
-				qe_targetProp(this.parent.parent.parent.parent, targetProp)
+				qe_targetProp(this.parent.parent.parent.parent, targetProp);
 			};
 			pal.grp.rightPart.circleGroup.cirDn.onClick = function () {
-				qe_targetProp(this.parent.parent.parent.parent, targetProp)
+				qe_targetProp(this.parent.parent.parent.parent, targetProp);
 			};
 			pal.grp.rightPart.buttonGrop.help.onClick = function () {
-				qe_help()
+				qe_help();
 			};
 
 			//button help tips
@@ -278,12 +282,12 @@
 			pal.grp.leftPart.buttonGrop.export.helpTip = qe_str.exportTip;
 			pal.grp.leftPart.buttonGrop.import.helpTip = qe_str.importTip;
 		}
-		return pal
+		return pal;
 	}
 
 
 	function qe_cleanTxt(pal) {
-		pal.grp.leftPart.txtArea.text = ""
+		pal.grp.leftPart.txtArea.text = "";
 	}
 
 
@@ -291,33 +295,33 @@
 		var propCount = 0;
 		for (var i = 0; i <= comp.selectedProperties.length; i++) {
 			if (comp.selectedProperties[i] instanceof Property) {
-				propCount++
+				propCount++;
 			}
 		}
-		return propCount > 1 ? true : false
+		return propCount > 1 ? true : false;
 	}
 
 
 	function qe_pickProp(pal) {
 		comp = app.project.activeItem;
 		if (qe_actItem(comp) && !qe_check2prop(comp)) {
-			pal.grp.rightPart.circleGroup.cirUp.enabled = true
-			pal.grp.rightPart.circleGroup.cirDn.enabled = true
+			pal.grp.rightPart.circleGroup.cirUp.enabled = true;
+			pal.grp.rightPart.circleGroup.cirDn.enabled = true;
 			var deepProp = comp.selectedProperties[comp.selectedProperties.length - 1];
 			targetProp = deepProp; //global
 			var endExp = qe_quote(deepProp.matchName);
 			while (deepProp.parentProperty instanceof PropertyGroup || deepProp.parentProperty instanceof MaskPropertyGroup) {
 				if (deepProp.parentProperty.propertyDepth == 1) {
-					endExp = qe_trans(deepProp.parentProperty.matchName, deepProp.parentProperty.name) + endExp
+					endExp = qe_trans(deepProp.parentProperty.matchName, deepProp.parentProperty.name) + endExp;
 				} else {
-					endExp = qe_trans(deepProp.parentProperty.matchName, qe_quote(deepProp.parentProperty.name)) + endExp
+					endExp = qe_trans(deepProp.parentProperty.matchName, qe_quote(deepProp.parentProperty.name)) + endExp;
 				}
-				deepProp = deepProp.parentProperty
+				deepProp = deepProp.parentProperty;
 			}
-			pal.grp.leftPart.txtArea.text = pal.grp.rightPart.circleGroup.cirUp.value ? qe_clean2quote("comp(\"" + comp.name + "\")" + ".layer(\"" + deepProp.parentProperty.name + "\")." + endExp) : qe_clean2quote("thisLayer." + endExp)
-			return targetProp
+			pal.grp.leftPart.txtArea.text = pal.grp.rightPart.circleGroup.cirUp.value ? qe_clean2quote("comp(\"" + comp.name + "\")" + ".layer(\"" + deepProp.parentProperty.name + "\")." + endExp) : qe_clean2quote("thisLayer." + endExp);
+			return targetProp;
 		} else {
-			alert(qe_str.errorOneProp)
+			alert(qe_str.errorOneProp);
 		}
 	}
 
@@ -326,21 +330,21 @@
 		var endExp = qe_quote(prop.matchName);
 		while (prop.parentProperty instanceof PropertyGroup || prop.parentProperty instanceof MaskPropertyGroup) {
 			if (prop.parentProperty.propertyDepth == 1) {
-				endExp = qe_trans(prop.parentProperty.matchName, prop.parentProperty.name) + endExp
+				endExp = qe_trans(prop.parentProperty.matchName, prop.parentProperty.name) + endExp;
 			} else {
-				endExp = qe_trans(prop.parentProperty.matchName, qe_quote(prop.parentProperty.name)) + endExp
+				endExp = qe_trans(prop.parentProperty.matchName, qe_quote(prop.parentProperty.name)) + endExp;
 			}
-			prop = prop.parentProperty
+			prop = prop.parentProperty;
 		}
-		pal.grp.leftPart.txtArea.text = pal.grp.rightPart.circleGroup.cirUp.value ? qe_clean2quote("comp(\"" + comp.name + "\")" + ".layer(\"" + prop.parentProperty.name + "\")." + endExp) : qe_clean2quote("thisLayer." + endExp)
+		pal.grp.leftPart.txtArea.text = pal.grp.rightPart.circleGroup.cirUp.value ? qe_clean2quote("comp(\"" + comp.name + "\")" + ".layer(\"" + prop.parentProperty.name + "\")." + endExp) : qe_clean2quote("thisLayer." + endExp);
 
 	}
 
 	function qe_actItem(comp) {
 		if (comp instanceof CompItem && comp.selectedProperties.length != 0) {
-			return true
+			return true;
 		} else {
-			return false
+			return false;
 		}
 	}
 
@@ -348,9 +352,9 @@
 		app.beginUndoGroup(qe_str.title);
 		var comp = app.project.activeItem;
 		if (qe_actItem(comp) && !qe_check2prop(comp)) {
-			pal.grp.leftPart.txtArea.text = comp.selectedProperties[comp.selectedProperties.length - 1].expression
+			pal.grp.leftPart.txtArea.text = comp.selectedProperties[comp.selectedProperties.length - 1].expression;
 		} else {
-			alert(qe_str.errorOneProp)
+			alert(qe_str.errorOneProp);
 		}
 		app.endUndoGroup();
 	}
@@ -364,7 +368,7 @@
 
 				if (comp.selectedProperties[i].canSetExpression == true) {
 
-					comp.selectedProperties[i].expression = pal.grp.leftPart.txtArea.text
+					comp.selectedProperties[i].expression = pal.grp.leftPart.txtArea.text;
 
 				} else {
 					//alert(qe_str.errorNotSet)
@@ -378,7 +382,7 @@
 		var comp = app.project.activeItem;
 		if (qe_actItem(comp)) {
 			for (var i = 0; i < comp.selectedProperties.length; i++) {
-				comp.selectedProperties[i].expressionEnabled = !comp.selectedProperties[i].expressionEnabled
+				comp.selectedProperties[i].expressionEnabled = !comp.selectedProperties[i].expressionEnabled;
 			}
 		}
 	}
@@ -388,7 +392,7 @@
 		var comp = app.project.activeItem;
 		if (qe_actItem(comp)) {
 			for (var i = 0; i < comp.selectedProperties.length; i++) {
-				comp.selectedProperties[i].expression = ""
+				comp.selectedProperties[i].expression = "";
 			}
 		}
 		app.endUndoGroup();
@@ -406,31 +410,32 @@
 					comp.selectedProperties[i].expression = js_beautify(comp.selectedProperties[i].expression, {
 						"jslint_happy": true,
 						"space_after_anon_function": true
-					})
+					});
 				}
 			}
 		}
 		pal.grp.leftPart.txtArea.text = js_beautify(pal.grp.leftPart.txtArea.text, {
 			"jslint_happy": true,
 			"space_after_anon_function": true
-		})
+		});
 		app.endUndoGroup();
 	}
 
 	function qe_quote(a) {
-		return a = "(\"" + a + "\")"
+		return "(\"" + a + "\")";
 	}
 
 	function qe_trans(matchName, name) {
 		var translatedName = propCompactEnglishExprs[matchName];
-		if (translatedName !== undefined) return eval(translatedName);
-		else return ("(" + name + ")")
+		if (translatedName !== undefined) {
+			return eval(translatedName);
+		} else return ("(" + name + ")");
 	}
 
 	function qe_clean2quote(aa) {
-		var reg = /\({2}/g
-		var reg2 = /\){2}/g
-		return aa = aa.replace(reg, "\(").replace(reg2, "\)")
+		var reg = /\({2}/g;
+		var reg2 = /\){2}/g;
+		return aa.replace(reg, "\(").replace(reg2, "\)");
 	}
 	var propCompactEnglishExprs = {
 		"ADBE Transform Group": "'transform'",
@@ -498,17 +503,14 @@
 		"ADBE Text Levels Min Ease": "'.easeLow'",
 		"ADBE Text Randomize Order": "'.randomizeOrder'",
 		"ADBE Text Random Seed": "'.randomSeed'",
-		"ADBE Text Selector Mode": "'.mode'",
 		"ADBE Text Wiggly Max Amount": "'.maxAmount'",
 		"ADBE Text Wiggly Min Amount": "'.minAmount'",
-		"ADBE Text Range Type2": "'.basedOn'",
 		"ADBE Text Temporal Freq": "'.wigglesSecond'",
 		"ADBE Text Character Correlation": "'.correlation'",
 		"ADBE Text Temporal Phase": "'.temporalPhase'",
 		"ADBE Text Spatial Phase": "'.spatialPhase'",
 		"ADBE Text Wiggly Lock Dim": "'.lockDimensions'",
 		"ADBE Text Wiggly Random Seed": "'.randomSeed'",
-		"ADBE Text Range Type2": "'.basedOn'",
 		"ADBE Text Expressible Amount": "'.amount'",
 		"ADBE Text Animator Properties": "'.property'",
 		"ADBE Text Anchor Point 3D": "'.anchorPoint'",
@@ -699,9 +701,9 @@
 	if (ui !== null) {
 		if (ui instanceof Window) {
 			ui.center();
-			ui.show()
+			ui.show();
 		} else {
-			ui.layout.layout(true)
+			ui.layout.layout(true);
 		}
 	}
 
@@ -2966,4 +2968,4 @@
 		return beautifier.beautify();
 
 	}
-})(this)
+})(this);
