@@ -1,5 +1,4 @@
-﻿//quick exp
-//1.0
+//silent is golden
 //songz meng
 
 (function qe_expressTool(thisObj) {
@@ -11,12 +10,12 @@
 			cn: "快捷表达式工具"
 		},
 		copyright: {
-			en: "Copyright (c) 2017 songz meng",
-			cn: "Copyright (c) 2017 songz meng"
+			en: "Copyright (c) 2019 songz meng",
+			cn: "Copyright (c) 2019 songz meng"
 		},
 		version: {
-			en: " v1.0",
-			cn: " v1.0"
+			en: " v1.1",
+			cn: " v1.1"
 		},
 		descript: {
 			en: "descript",
@@ -48,16 +47,16 @@
 			cn: "导出表达式到属性"
 		},
 		toggleTip: {
-			en: "toggle Props' expressions",
-			cn: "开/关所属性的表达式"
+			en: "toggle Props' expressions\nkbar argument: toggle",
+			cn: "开/关所属性的表达式\nkbar 参数: toggle"
 		},
 		deleteTip: {
-			en: "delete Props' expressions",
-			cn: "删除所选属性的表达式"
+			en: "delete Props' expressions\nkbar argument: delete",
+			cn: "删除所选属性的表达式\nkbar 参数: delete"
 		},
 		beautyTip: {
-			en: "expression beauty",
-			cn: "格式化表达式"
+			en: "expression beauty\nkbar argument: beauty",
+			cn: "格式化表达式\nkbar 参数: beauty"
 		},
 		pickTip: {
 			en: "get Prop's path",
@@ -88,8 +87,8 @@
 			cn: "所选属性不支持表达式"
 		},
 		useContent: {
-			en: "▶import : import the property\\'s expression to the text area\\n▶export : export the text to selected properties\\n▶toggle : enable or disable your properties\\' expressions\\n▶delete : delete your properties\\' expressions\\n▶beauty : beautify text area and your expressions\\n▶pick : get the property\\'s path\\n* support absolute or relative path\\n* support batch operations except import and pick",
-			cn: "▶导入: 导入属性的表达式到文本框\\n▶导出: 导出表达式到所选属性\\n▶开关: 启用或禁用所选属性的表达式\\n▶删除: 删除所选属性的表达式\\n▶美化: 美化文本框和所选属性的表达式\\n▶吸管: 提取属性的表达式路径\\n* 支持绝对值和相对值路径\\n* 支持批量操作，除了导入和吸管\\n"
+			en: "▶import : import the property\\'s expression to the text area\\n\\n▶export : export the text to selected properties\\n\\n▶toggle : enable or disable your properties\\' expressions\\n\\n▶delete : delete your properties\\' expressions\\n\\n▶beauty : beautify text area and your expressions\\n\\n▶pick : get the property\\'s path\\n\\n* support absolute or relative path\\n\\n* support batch operations except import and pick",
+			cn: "▶导入: 导入属性的表达式到文本框\\n\\n▶导出: 导出表达式到所选属性\\n\\n▶开关: 启用或禁用所选属性的表达式\\n\\n▶删除: 删除所选属性的表达式\\n\\n▶美化: 美化文本框和所选属性的表达式\\n\\n▶吸管: 提取属性的表达式路径\\n\\n* 支持绝对值和相对值路径\\n\\n* 支持批量操作，除了导入和吸管\\n"
 		},
 		desContent: {
 			en: function () {
@@ -102,6 +101,10 @@
 		cleanTip: {
 			en: "clear,can't undo!",
 			cn: "清空，不可撤回！"
+		},
+		kbarErr: {
+			en: "error kbar argument, please try 'beauty','toggle'or'delete'",
+			cn: "错误的 kbar 参数，请尝试'beauty','toggle'或者'delete'"
 		},
 		aa: {
 			en: "abc",
@@ -378,7 +381,7 @@
 		app.endUndoGroup();
 	}
 
-	function qe_toggleExp(pal) {
+	function qe_toggleExp() {
 		var comp = app.project.activeItem;
 		if (qe_actItem(comp)) {
 			for (var i = 0; i < comp.selectedProperties.length; i++) {
@@ -387,7 +390,7 @@
 		}
 	}
 
-	function qe_deleteExp(pal) {
+	function qe_deleteExp() {
 		app.beginUndoGroup(qe_str.title);
 		var comp = app.project.activeItem;
 		if (qe_actItem(comp)) {
@@ -414,10 +417,12 @@
 				}
 			}
 		}
-		pal.grp.leftPart.txtArea.text = js_beautify(pal.grp.leftPart.txtArea.text, {
-			"jslint_happy": true,
-			"space_after_anon_function": true
-		});
+		try {
+			pal.grp.leftPart.txtArea.text = js_beautify(pal.grp.leftPart.txtArea.text, {
+				"jslint_happy": true,
+				"space_after_anon_function": true
+			})
+		} catch (e) {}
 		app.endUndoGroup();
 	}
 
@@ -695,17 +700,49 @@
 		"ADBE Extrsn Options Group": "'geometryOption'",
 		"ADBE Plane Options Group": "'geometryOption'",
 	};
-	var ui = qe_buildUI(thisObj);
-	var targetProp = null;
 
-	if (ui !== null) {
-		if (ui instanceof Window) {
-			ui.center();
-			ui.show();
-		} else {
-			ui.layout.layout(true);
+	var isKBarRunning = (typeof kbar !== 'undefined');
+
+	if (isKBarRunning && kbar.button && kbar.button.argument) {
+		var version = kbar.version; 
+
+		var button = kbar.button; 
+
+		var id = button.id; 
+		var name = button.name; 
+		var argument = button.argument; 
+
+		switch (button.argument) {
+		case 'beauty':
+			qe_beauty();
+			break;
+
+		case 'delete':
+			qe_deleteExp();
+			break;
+
+		case 'toggle':
+			qe_toggleExp();
+			break;
+
+		default:
+			alert(qe_str.kbarErr);
+			break;
+		}
+	} else {
+		var ui = qe_buildUI(thisObj);
+		var targetProp = null;
+
+		if (ui !== null) {
+			if (ui instanceof Window) {
+				ui.center();
+				ui.show();
+			} else {
+				ui.layout.layout(true);
+			}
 		}
 	}
+
 
 
 
@@ -1097,9 +1134,9 @@
 
 				if (operatorLogicApplies) {
 					var shouldPrintOperatorNewline = (
-						in_array(flags.last_text, Tokenizer.positionable_operators) &&
+							in_array(flags.last_text, Tokenizer.positionable_operators) &&
 							in_array(opt.operator_position, OPERATOR_POSITION_BEFORE_OR_PRESERVE)
-					) ||
+						) ||
 						in_array(current_token.text, Tokenizer.positionable_operators);
 					shouldPreserveOrForce = shouldPreserveOrForce && shouldPrintOperatorNewline;
 				}
@@ -1429,9 +1466,9 @@
 				var next_token = get_token(1);
 				var second_token = get_token(2);
 				if (second_token && (
-					(in_array(second_token.text, [':', ',']) && in_array(next_token.type, ['TK_STRING', 'TK_WORD', 'TK_RESERVED'])) ||
+						(in_array(second_token.text, [':', ',']) && in_array(next_token.type, ['TK_STRING', 'TK_WORD', 'TK_RESERVED'])) ||
 						(in_array(next_token.text, ['get', 'set', '...']) && in_array(second_token.type, ['TK_WORD', 'TK_RESERVED']))
-				)) {
+					)) {
 
 					if (!in_array(last_last_text, ['class', 'interface'])) {
 						set_mode(MODE.ObjectLiteral);
