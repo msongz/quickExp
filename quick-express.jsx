@@ -14,8 +14,8 @@
 			cn: "Copyright (c) 2019 songz meng"
 		},
 		version: {
-			en: " v1.1",
-			cn: " v1.1"
+			en: " v1.11",
+			cn: " v1.11"
 		},
 		descript: {
 			en: "descript",
@@ -699,6 +699,7 @@
 		"ADBE Vector Transform Group": "'.transform'",
 		"ADBE Extrsn Options Group": "'geometryOption'",
 		"ADBE Plane Options Group": "'geometryOption'",
+		"ADBE Layer Overrides": "'masterProperty'",
 	};
 
 	var isKBarRunning = (typeof kbar !== 'undefined');
