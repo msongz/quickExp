@@ -20,6 +20,21 @@ control expressions quickly in After Effects
 
 - support absolute or relative expression
 
+### Kbar
+---
+availble arguments:
+
+- **toggle**
+- **delete**
+- **beauty**
+
+leave argument blank to run GUI mode
+
+example:
+![](https://ws4.sinaimg.cn/large/006tKfTcgy1g0no3hzu5cj30ed08cq3c.jpg)
+
+
+
   
 ### Installation
 ---
@@ -41,12 +56,14 @@ or
 
 ### Compatibility
 ---
-  After Effects `fully test on cc 2018`
+  After Effects `fully test on cc 2018 and above`
   
  
 ### Change log
 ---
- - 1.0  initial release `2017/02/01`
+- 1.11 ae 2019 compatible `2019/03/01`
+- 1.1 kbar support `2019/03/01` 
+- 1.0  initial release `2017/02/01`
 
 ### Licence
 ---
