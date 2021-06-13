@@ -4,7 +4,7 @@
 
 control expressions quickly in After Effects
 
-![](https://ws3.sinaimg.cn/large/006tNbRwgy1fw9gaeue8ig30nx0fy7wh.gif)
+![](https://tva2.sinaimg.com/large/006tNbRwgy1fw9gaeue8ig30nx0fy7wh.gif)
 
 ### Description
 ---
